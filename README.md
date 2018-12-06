@@ -2,7 +2,7 @@
 
 If you put a `assets/pictures/photo1.jpg` thumbnailer will put `thumbnail/height_256/assets/pictures/photo1.jpg`
 
-Sizes and prefixes defined in `src/sizes.js`
+Sizes and prefixes defined in [`src/sizes.js`](blob/master/src/sizes.js)
 
 `.options` for [sharp.resize()](http://sharp.pixelplumbing.com/en/stable/api-resize/)
 
