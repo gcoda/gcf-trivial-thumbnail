@@ -2,7 +2,7 @@
   "name": "thumbnailer",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "copy-env": "cpx './.env' ./dist",
     "copy": "cpx './src/*' ./dist && cpx '*.{json,lock}' ./dist",
