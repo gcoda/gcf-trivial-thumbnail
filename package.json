@@ -1,0 +1,28 @@
+{
+  "name": "thumbnailer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "copy-env": "cpx './.env' ./dist",
+    "copy": "cpx './src/*' ./dist && cpx '*.{json,lock}' ./dist",
+    "clean": "rimraf dist",
+    "bundle" : "npm run clean && npm run copy-env && npm run copy",
+    "set-project": "gcloud config set project no-page",
+    "predeploy": "npm run bundle && npm run set-project",
+    "deploy": "gcloud functions deploy thumbnailerAnigen --trigger-resource anigen --entry-point='app' --runtime nodejs8 --source='./dist' --trigger-event google.storage.object.finalize --region=europe-west1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.371.0",
+    "dotenv": "^6.2.0",
+    "sharp": "^0.21.0"
+  },
+  "devDependencies": {
+    "cpx": "^1.5.0",
+    "rimraf": "^2.6.2"
+  }
+}
