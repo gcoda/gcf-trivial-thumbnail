@@ -13,6 +13,7 @@ module.exports = ({s3, sourceObject, options, prefix, Key, Bucket}) =>
             Body: resizedBuffer,
             Bucket,
             ContentType: sourceObject.ContentType,
+            ACL: 'public-read',
           },
           (err, resizedObject) => {
             if (err) {
