@@ -1,6 +1,9 @@
 # Trivial Cloud Storage Thumbnail
 
-If you put a `assets/pictures/photo1.jpg` thumbnailer will put `thumbnail/height_256/assets/pictures/photo1.jpg`
+If you put a `assets/pictures/photo1.jpg` thumbnailer will put `assets/pictures/thumbnail/height_256/photo1.jpg`
+
+defined in [`src/resize.js`](src/resize.js)
+* `${dirname(Key)}/thumbnail/${prefix}/${basename(Key)}`
 
 Sizes and prefixes defined in [`src/sizes.js`](src/sizes.js)
 
