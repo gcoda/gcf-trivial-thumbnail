@@ -14,8 +14,9 @@ exports.app = (data, context, callback) => {
 
   if (
     context.eventType === 'google.storage.object.finalize' &&
-    triggerObject.name.match(/\.jpg|\.jpeg$/) &&
-    !triggerObject.name.match(/thumbnail\//)
+    triggerObject.name.match(/\.jpg|\.jpeg|\.png$/) &&
+    !triggerObject.name.match(/thumbnail\//) &&
+    !triggerObject.name.match(/.thumbnails\//)
   ) {
     console.log('Resize', { Bucket, Key })
     s3.getObject({ Key, Bucket }, (sourceError, sourceObject) => {
