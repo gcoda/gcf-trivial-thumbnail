@@ -1,5 +1,10 @@
 const sharp = require('sharp')
-const { dirname, basename } = require('path')
+
+const { dirname, basename, extname } = require('path')
+
+const thumbnailKey = ({ Key, prefix }) =>
+  `.thumbnails/${Key}/${prefix}${extname(Key)}`
+
 module.exports = ({ s3, sourceObject, options, prefix, Key, Bucket }) =>
   new Promise((resolve, reject) => {
     console.log({ options })
@@ -10,7 +15,7 @@ module.exports = ({ s3, sourceObject, options, prefix, Key, Bucket }) =>
         console.log(resizedBuffer.length)
         s3.putObject(
           {
-            Key: `${dirname(Key)}/thumbnail/${prefix}/${basename(Key)}`,
+            Key: thumbnailKey({ Key, prefix }),
             Body: resizedBuffer,
             Bucket,
             ContentType: sourceObject.ContentType,
