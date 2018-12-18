@@ -29,5 +29,22 @@ module.exports = ({ s3, sourceObject, options, prefix, Key, Bucket }) =>
             }
           }
         )
+
+        // s3.putObject(
+        //   {
+        //     Key: `${dirname(Key)}/thumbnail/${prefix}/${basename(Key)}`,
+        //     Body: resizedBuffer,
+        //     Bucket,
+        //     ContentType: sourceObject.ContentType,
+        //     ACL: 'public-read',
+        //   },
+        //   (err, resizedObject) => {
+        //     if (err) {
+        //       reject(err)
+        //     } else {
+        //       resolve(resizedObject)
+        //     }
+        //   }
+        // )
       })
   })
